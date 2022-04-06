@@ -1,0 +1,348 @@
+{
+  "user_details": [
+    {
+      "user_id": 32341,
+      "user_firstname": "Nikunj",
+      "user_lastname": "Katariya",
+      "user_contact": "8264632490",
+      "user_email": "nikunjkatariya@gmail.com",
+      "user_username": "nnk",
+      "user_password": "nnk",
+      "user_document": "../assets/images/user/usercard.png",
+      "user_profilephoto": "../assets/images/user/profile.png",
+      "user_company_name": "",
+      "user_watchlist": [
+        "CON00002",
+        "CON00001"
+      ],
+      "user_status": true,
+      "user_token": "",
+      "user_authentication": false,
+      "user_registration_date": "Mon Mar 28 2022 17:38:10 GMT+0530 (India Standard Time)",
+      "id": 3
+    }
+  ],
+  "card_details": [
+    {
+      "card_id": 1,
+      "userid": 32341,
+      "card_type": "ATM",
+      "card_title": "SBI Card",
+      "card_bank": "SBI",
+      "card_number": "1234 1332 4567 8974",
+      "card_expiry": "04/22",
+      "card_holdername": "Jackson Leanne",
+      "card_cvv": "514"
+    }
+  ],
+  "containertype_details": [
+    {
+      "id": 1,
+      "contype_id": "CTI0001",
+      "contype_type": "Wooden",
+      "contype_height": "20",
+      "contype_width": "40",
+      "contype_code": "20WD40"
+    },
+    {
+      "id": 2,
+      "contype_id": "CTI0002",
+      "contype_type": "Steel",
+      "contype_height": "20",
+      "contype_width": "40",
+      "contype_code": "20SL40"
+    },
+    {
+      "id": 3,
+      "contype_id": "CTI0003",
+      "contype_type": "Water",
+      "contype_height": "20",
+      "contype_width": "40",
+      "contype_code": "20WA40"
+    }
+  ],
+  "terminal_details": [
+    {
+      "id": 1,
+      "terminal_id": "TI100001",
+      "terminal_name": "EVERPORT",
+      "terminal_mobile": "+1789465132",
+      "terminal_email": "asd@asd.asd",
+      "terminal_username": "terminal1",
+      "terminal_password": "12345",
+      "terminal_location": "dfg",
+      "city": "Oakland",
+      "country": "United States",
+      "zipcode": "94607",
+      "terminal_logo": "../assets/images/terminallogo.png",
+      "fax": "",
+      "description": "",
+      "terminal_status": "Active",
+      "token": ""
+    },
+    {
+      "id": 2,
+      "terminal_id": "TI100002",
+      "terminal_name": "EVERPORT North",
+      "terminal_mobile": "+178943456",
+      "terminal_email": "asd@asd.asd",
+      "terminal_username": "terminal2",
+      "terminal_password": "12345",
+      "terminal_location": "7th St",
+      "city": "Long Island",
+      "country": "United States",
+      "zipcode": "94607",
+      "terminal_logo": "../assets/images/terminallogo.png",
+      "fax": "",
+      "description": "",
+      "terminal_status": "Active",
+      "token": ""
+    },
+    {
+      "id": 4,
+      "terminal_id": "TI0002",
+      "terminal_name": "Mudra",
+      "terminal_mobile": "1234567890",
+      "terminal_email": "abc@gmail.com",
+      "terminal_username": "Mudra123",
+      "terminal_password": 4003,
+      "terminal_location": "Gujarat",
+      "city": "KUtch",
+      "country": "India",
+      "zipcode": 320004,
+      "terminal_logo": "../assets/images/terminallogo.png",
+      "fax": "",
+      "description": "",
+      "terminal_status": "Active",
+      "token": ""
+    }
+  ],
+  "container_details": [
+    {
+      "id": 1,
+      "con_id": "CON00001",
+      "contype_id": "CTI0001",
+      "terminal_id_origin": "TI100001",
+      "terminal_id_current": "TI100001",
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "con_id": "CON00002",
+      "contype_id": "CTI0002",
+      "terminal_id_origin": "TI100002",
+      "terminal_id_current": "TI100002",
+      "status": "Available"
+    },
+    {
+      "id": 3,
+      "con_id": "CON00003",
+      "contype_id": "CTI0003",
+      "terminal_id_origin": "TI100003",
+      "terminal_id_current": "TI100003",
+      "status": "Available"
+    },
+    {
+      "id": 4,
+      "con_id": "CON00004",
+      "contype_id": "CTI0004",
+      "terminal_id_origin": "TI100004",
+      "terminal_id_current": "TI100004",
+      "status": "Available"
+    },
+    {
+      "id": 3,
+      "con_id": "CON00003",
+      "contype_id": "CTI0001",
+      "terminal_id_origin": "TI100002",
+      "terminal_id_current": "TI100001",
+      "status": "Available"
+    },
+    {
+      "id": 4,
+      "con_id": "CON00004",
+      "contype_id": "CTI0002",
+      "terminal_id_origin": "TI100002",
+      "terminal_id_current": "TI100001",
+      "status": "Available"
+    }
+  ],
+  "status_details": [
+    {
+      "id": 2,
+      "status_id": "ST100002",
+      "con_id": "CON00002",
+      "con_loaded": false,
+      "container_status": "Shiping",
+      "appointment_id": "APT100001",
+      "destination": "trsrdcg",
+      "departure_date": "1-12-2022",
+      "ship_id": "SP0001",
+      "arriving_date": "1-12-2022",
+      "receiver_delivery_date": ""
+    }
+  ],
+  "appointment_details": [
+    {
+      "id": 1,
+      "appointment_id": "APT100001",
+      "user_id": "USR100001",
+      "container_id": "CTI0001",
+      "pickup_date": "23-03-2022",
+      "sending_date": "23-03-2022",
+      "source_terminal_id": "TI100001",
+      "delivery_terminal_id": "TI1000012",
+      "delivery_date": "23-03-2022",
+      "user_remarks": "Ok",
+      "cost": 99,
+      "terminal_remarks": "Ok",
+      "datetime": "23-03-2022",
+      "receiver_fullname": "ABC",
+      "receiver_phone": 123456789,
+      "receiver_mail": "a@b.com",
+      "appointment_status": "Approved",
+      "destination": "Long Island",
+      "selected": false,
+      "selectedAll": false,
+      "deliveryDate": "2022-03-11"
+    },
+    {
+      "id": 2,
+      "appointment_id": "APT100002",
+      "user_id": "USR100002",
+      "container_id": "CTI0002",
+      "pickup_date": "23-03-2022",
+      "sending_date": "23-03-2022",
+      "source_terminal_id": "TI1000012",
+      "delivery_terminal_id": "TI100001",
+      "delivery_date": "23-03-2022",
+      "user_remarks": "Ok",
+      "cost": 99,
+      "terminal_remarks": "Ok",
+      "datetime": "23-03-2022",
+      "receiver_fullname": "PQR",
+      "receiver_phone": 123456789,
+      "receiver_mail": "a@b.com",
+      "appointment_status": "Approved",
+      "destination": "Long Island",
+      "selected": false,
+      "selectedAll": false,
+      "deliveryDate": "2022-03-11"
+    },
+    {
+      "id": 3,
+      "container_id": "CON00002",
+      "pickup_date": "22-03-2022",
+      "sending_date": "22-03-2022",
+      "delivery_terminal_id": "TI100001",
+      "delivery_date": "",
+      "user_remarks": "Ok. Nice.",
+      "cost": [],
+      "terminal_remarks": "",
+      "datetime": "",
+      "receiver_fullname": "",
+      "receiver_phone": "",
+      "receiver_mail": "",
+      "appointment_status": "rejected",
+      "destination": "Oakland",
+      "selected": false,
+      "selectedAll": false,
+      "deliveryDate": "2022-03-03"
+    },
+    {
+      "id": 4,
+      "appointment_id": "APT100003",
+      "user_id": "USR100003",
+      "container_id": "CON00003",
+      "pickup_date": "22-03-2022",
+      "sending_date": "22-03-2022",
+      "delivery_terminal_id": "TI100002",
+      "delivery_date": "",
+      "user_remarks": "Ok. Nice.",
+      "cost": [],
+      "terminal_remarks": "",
+      "datetime": "",
+      "receiver_fullname": "",
+      "receiver_phone": "",
+      "receiver_mail": "",
+      "appointment_status": "",
+      "payment_id": "PT001",
+      "destination": "Long Island",
+      "selected": false,
+      "selectedAll": false,
+      "deliveryDate": "2022-03-03"
+    }
+  ],
+  "payment_details": [
+    {
+      "id": 1,
+      "payment_id": "PT001",
+      "payment_mode": "ATM",
+      "payment_amount": 2000,
+      "issued_by": "eModal",
+      "Description": "",
+      "date": "21/03/2022"
+    }
+  ],
+  "feedback_details": [
+    {
+      "id": 1,
+      "usertype": "",
+      "userid": "",
+      "feedaback_type": "",
+      "description": "",
+      "read_status": true,
+      "feedback_time": ""
+    },
+    {
+      "id": 38,
+      "usertype": "",
+      "userid": "",
+      "feedaback_type": "akjef",
+      "description": "siuvuefh",
+      "feedback_time": "2022-03-23T14:27:14.729Z",
+      "read_status": true
+    }
+  ],
+  "admin_master": [
+    {
+      "id": 1,
+      "admin_id": "MASTER85646",
+      "admin_first_name": "Ervin",
+      "admin_last_name": "Howell",
+      "admin_username": "ErHowell456",
+      "admin_password": "85Er6Ho46",
+      "admin_token": ""
+    }
+  ],
+  "notification_details": [
+    {
+      "id": 1,
+      "sendto_id": 3,
+      "date": "",
+      "description": "This is a notification",
+      "status": false
+    },
+    {
+      "id": 2,
+      "sendto_id": 3,
+      "date": "",
+      "description": "This is another notification",
+      "status": false
+    },
+    {
+      "id": 3,
+      "sendto_id": 3,
+      "date": "",
+      "description": "This is some other notification",
+      "status": false
+    },
+    {
+      "id": 4,
+      "sendto_id": 82,
+      "date": "",
+      "description": "This is 4th notification",
+      "status": false
+    }
+  ]
+}

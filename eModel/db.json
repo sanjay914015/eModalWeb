@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "container": [
+    {
+    "id": 1,
+    "contype_type": "Steel",
+    "contype_height": "20",
+    "contype_width": "40",
+    "contype_code": "20WD40"
+  },
+{
+  "id": 2,
+  "contype_type": "Wooden",
+  "contype_height": "20",
+  "contype_width": "40",
+  "contype_code": "20WD40"
+},
+{
+  "id": 3,
+  "contype_type": "Wooden",
+  "contype_height": "20",
+  "contype_width": "40",
+  "contype_code": "20WD40"
+}
+]
+}

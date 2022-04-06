@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mx-2">My Containers</a>
+    <button type="button" class="btn btn-default-add" (click)="deletwSelectedRows()">Remove Container</button>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Add Container you want to watch</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form class="formControl" name="formcontrol">
+                Add Containar Id -<input type="text" [(ngModel)]="containerIds" name="containerIds" #contid>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="addContainer(contid.value)">ADD</button>
+        </div>
+    </ng-template>
+    <button class="btn btn-default-add" (click)="open(content)">Add Container</button>
+
+    <!-- <div class="dropdown ">        
+        <button class="btn btn-default btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-pdf"
+                viewBox="0 0 16 16">
+                <path
+                    d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                <path
+                    d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z" />
+            </svg>
+        </button>
+
+        <button  class="btn btn-default btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-excel"
+                viewBox="0 0 16 16">
+                <path
+                    d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z" />
+                <path
+                    d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+            </svg>
+        </button>
+    </div>
+  -->
+</nav>
+
+<table class="table" id="contentToConvert">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+            <th scope="col">Container ID</th>
+            <th scope="col"></th>
+            <th scope="col">Loaded OR Empty</th>
+            <!-- <th scope="col">PhaseStatus</th> -->
+            <th scope="col">Appointment ID</th>
+            <th scope="col">Destination</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let container of watchlist; let i = index">
+            <tr>
+                <th scope="row"><input class="form-check-input" type="checkbox" value="" (click)="changeState(i)"></th>
+                <td>{{container.con_id}}</td>
+                <td *ngIf="!container.loadRow"><button type="button" class="btn btn-default btn-sm"
+                        (click)="expand(i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="#ff0000" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
+                        </svg></button></td>
+                <td *ngIf="container.loadRow"><button type="button" class="btn btn-default btn-sm"
+                        (click)="collapse(i)"><i class="fa-solid fa-angles-down"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0000"
+                            class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
+                        </svg> </button>
+                </td>
+                <td *ngIf="container.con_loaded">Loaded</td>
+                <td *ngIf="!container.con_loaded">Empty</td>
+                <!-- <td><label *ngIf="container.con_loaded==true">Loaded</label><label *ngIf="container.con_loaded==false">Empty</label></td> -->
+                <td>{{container.appointment_id}}</td>
+                <td>{{container.destination}}</td>
+            </tr>
+            <tr *ngIf="container.loadRow">
+                <td colspan="7">
+                    <div>
+                        <h4 style="text-align: center;">{{container.con_id}}</h4>
+                        <div class="row">
+                            <div class="card w-50">
+                                <div class="card-body">
+                                    <h5 class="card-title">Container Details</h5>
+                                    <div class="row">
+                                        <div class="w-50">
+                                            <h6>Container ID</h6>
+                                            <p>{{container.con_id}}</p>
+                                        </div>
+                                        <div class="w-50">
+                                            <h6>Loaded OR Empty</h6>
+                                            <p *ngIf="container.con_loaded">Loaded</p>
+                                            <p *ngIf="!container.con_loaded">Empty</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card w-50">
+                                <div class="card-body">
+                                    <h5 class="card-title">Container Status</h5>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Status</h6>
+                                            <p><label *ngIf="container.con_loaded==true">Loaded</label><label *ngIf="container.con_loaded==false">Empty</label></p>
+                                        </div>
+                                        <div class="col">
+                                            <h6>Destination</h6>
+                                            <p>{{container.destination}}</p>
+                                        </div>
+                                        <div class="col" *ngIf="container.departure_date != ''">
+                                            <h6>Departher Date</h6>
+                                            <p>{{container.departure_date}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <h6>Ship Id</h6>
+                                            <p>{{container.ship_id}}</p>
+                                        </div>
+                                        <div class="col" *ngIf="container.arriving_date != ''">
+                                            <h6>Arriving Date</h6>
+                                            <p>{{container.arriving_date}}</p>
+                                        </div>
+                                        <div class="col" *ngIf="container.receiver_delivery_date != ''">
+                                            <h6>Delivery Date</h6>
+                                            <p>{{container.receiver_delivery_date}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

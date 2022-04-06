@@ -1,0 +1,71 @@
+.logo-advent{
+    padding-top: 40px;
+    height: 100px;
+}
+.padontop{
+    padding-top: 27px;
+    padding-left: 7px;
+}
+.form-inline {
+   display: flex;
+    flex-flow: row wrap;
+    align-items: center; 
+    
+  }
+  
+  
+  .form-inline label {
+    margin: 5px 10px 5px 0;
+  }
+  
+ 
+.userinfo{
+  background: transparent;
+  border-style: none;
+  border-bottom: 1px solid black;
+}
+  
+  
+  @media (max-width: 800px) {
+    .form-inline input {
+      margin: 10px 0;
+    }
+  
+    .form-inline {
+      flex-direction: column;
+      align-items: stretch;
+      
+    }
+  }
+
+  .edit-btn{
+      border: none;
+      background-color: white;
+      margin-left: 500px;
+  }
+  .edit-btn1{
+    border: none;
+    background-color: white;
+    margin-left: 1000px;
+}
+
+  .container {
+    border-radius: 10px  ;
+    background-color: #fdfcfc;
+    padding: 20px;
+    margin-left:100px;
+    border: 2px   black;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px  #dad9d9;
+   
+  }
+ .btn{
+   margin-left: 1000px;
+ }
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+

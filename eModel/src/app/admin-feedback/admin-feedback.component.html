@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">User Type</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Feedback Type</th>
+            <th scope="col">Description</th>
+            <th scope="col">Feedback time</th>
+            <th scope="col">Read Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let receiveData of receivefeedbackdetails">
+            <th scope="row">{{receiveData.id}}</th>
+            <td>{{receiveData.usertype}}</td>
+            <td>{{receiveData.userid}}</td>
+            <td>{{receiveData.description}}</td>
+            <td>{{receiveData.feedback_time}}</td>
+            <td>{{receiveData.read_status}}</td>
+            <td>
+                <button type="submit" class="btn btn-primary btn-sm" (click)="Read(receiveData)">Read</button>        
+            </td>               
+        </tr>
+</table>

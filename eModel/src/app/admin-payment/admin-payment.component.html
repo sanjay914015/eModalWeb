@@ -1,0 +1,37 @@
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Appointment ID</th>
+            <th scope="col">User ID</th>
+            <th scope="col">Container ID</th>
+            <th scope="col">Delivery Terminal ID</th>
+            <th scope="col">Payment ID</th>
+            <th scope="col">Payment Mode</th>
+            <th scope="col">Payment Amount</th>
+            <th scope="col">Payment Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let receiveData of receiveappointmentdetails">
+            <th scope="row">{{receiveData.appointment_id}}</th>
+            <td>{{receiveData.user_id}}</td>
+            <td>{{receiveData.container_id}}</td>
+            <td>{{receiveData.delivery_terminal_id}}</td>
+            <td>{{receiveData.payment_id}}</td>
+            <td>
+            <div *ngFor="let paymentdata of receivepaymentdetails">
+                    <p *ngIf="paymentdata.payment_id == receiveData.payment_id">{{paymentdata.payment_mode}}</p> 
+            </div>
+            </td>
+            <td>
+                <div *ngFor="let paymentdata of receivepaymentdetails">
+                        <p *ngIf="paymentdata.payment_id == receiveData.payment_id">{{paymentdata.payment_amount}}</p> 
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let paymentdata of receivepaymentdetails">
+                        <p *ngIf="paymentdata.payment_id == receiveData.payment_id">{{paymentdata.date}}</p> 
+                </div>
+            </td>
+        </tr>
+</table>

@@ -1,0 +1,125 @@
+.content-box {
+    margin: 0 0 20px;
+    text-align: center;
+    cursor: pointer;
+    height: 200px;
+}
+
+.content-box p {
+    margin: 1;
+    color: #fff;
+}
+
+.content-box h3 {
+    line-height: 26px;
+    padding-bottom: 8px;
+    color: rgb(29, 29, 29);
+    font-weight: 600;
+
+}
+
+.content-box i {
+    font-size: 80px;
+    color: rgb(19, 18, 18);
+    margin: 10px 0;
+    display: block;
+
+}
+
+.vl {
+    border-left: 6px solid green;
+    height: 500px;
+  }
+.box-icon i {
+    display: inline-block;
+    font-size: 0;
+    cursor: pointer;
+    margin: 15px 0;
+    width: 240px;
+    height: 210px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.box-icon i:after {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    content: '';
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.box-icon i:before {
+    font-size: 40px;
+    line-height: 90px;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+}
+
+.box-icon-effect-1 .box-icon i {
+    background: rgba(0, 0, 0, 0.2);
+    color: rgb(0, 0, 0);
+    -webkit-transition: background .2s, color .2s;
+    -moz-transition: background .2s, color .2s;
+    transition: background .2s, color .2s;
+}
+
+.box-icon-effect-1 .box-icon i:after {
+    top: -7px;
+    left: -7px;
+    padding: 7px;
+    box-shadow: 0 0 0 4px rgb(0, 0, 0);
+    -webkit-transition: -webkit-transform .2s, opacity .2s;
+    -webkit-transform: scale(.8);
+    -moz-transition: -moz-transform .2s, opacity .2s;
+    -moz-transform: scale(.8);
+    -ms-transform: scale(.8);
+    transition: transform .2s, opacity .2s;
+    transform: scale(.8);
+    opacity: 0;
+}
+
+.content-box:hover .box-icon-effect-1a .box-icon i {
+    background: rgb(0, 0, 0);
+    color: #000000;
+}
+
+.content-box:hover .box-icon-effect-2a .box-icon i {
+    background: rgb(0, 0, 0);
+    color: #000000;
+}
+.content-box:hover .box-icon-effect-1a .box-icon i:after {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.box-icon-effect-2 .box-icon i {
+    box-shadow: 0 0 0 4px rgb(0, 0, 0);
+    overflow: hidden;
+    -webkit-transition: background .3s, color .3s, box-shadow .3s;
+    -moz-transition: background .3s, color .3s, box-shadow .3s;
+    transition: background .3s, color .3s, box-shadow .3s;
+    color: #fff;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.backgroundImage
+{
+    background-repeat:no-repeat;
+}

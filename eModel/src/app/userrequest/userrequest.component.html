@@ -1,0 +1,146 @@
+<div *ngIf="showLoadingIndicator" class="loader"></div>
+<div *ngIf="!showLoadingIndicator">
+  <div class="navbar bg-light navbar-light">
+    <h4 class="text-secondary mx-2">User Requests</h4>
+    <!-- <button class="btn btn-success mx-2 btn-sm" data-bs-toggle="modal" data-bs-target="#multiple">
+      Approve
+    </button> -->
+    <!-- <button class="btn btn-secondary ms-auto mx-2" >Actions</button> -->
+  </div>
+  <div class="">
+    <table class="table mt-3">
+      <thead class="thead-light">
+        <tr>
+          <!-- <th scope="col">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" (change)="selectAll()" />
+          </th> -->
+          <th scope="col">#</th>
+          <th scope="col">ContainerID</th>
+          <th scope="col">Pickup Date</th>
+          <th scope="col">Sending Date</th>
+          <th scope="col">Destination</th>
+          <th scope="col">Remarks</th>
+          <th scope="col">Status</th>
+          <th scope="col">Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of trequests; let i = index">
+          <!-- <th scope="col">
+            <input class="form-check-input" type="checkbox" [value]="item.id" [checked]="item.selected"
+              (change)="onChangeCheckbox($event)" />
+          </th> -->
+          <td>{{ item.appointment_id }}</td>
+          <td>{{ item.container_id}}</td>
+          <td>{{ item.pickup_date }}</td>
+          <td>{{ item.sending_date }}</td>
+          <td>{{ item.destination }}</td>
+          <td>{{ item.user_remarks }}</td>
+          <td>{{ item.appointment_status }}</td>
+          <td *ngIf="item.appointment_status=='Requested'">
+            <button type="button" class="btn btn-primary btn-sm me-1" data-bs-toggle="modal"
+              data-bs-target="#individual" (click)="approveRequest(approve,item, item.id)">
+              Approve
+            </button>
+            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#remarks"
+              (click)="approveRequest(reject,item, item.id)">
+              Reject
+            </button>
+          </td>
+          <td *ngIf="item.appointment_status=='Approved'">{{item.cost}}</td>
+          <td *ngIf="item.appointment_status=='Rejected'">{{item.terminal_remarks}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Modal for approving individual-->
+<ng-template #approve let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Approve</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="approvedDetails" (ngSubmit)="approveFromModal(approvedDetails)">
+      <div class="input-group mt-1">
+        <span class="input-group-text">Enter Cost</span>
+        <input type="text" class="form-control" formControlName="requestCost" required />
+      </div>
+      <div class="input-group mt-1">
+        <span class="input-group-text">Enter Delivery Date</span>
+        <input class="form-control" type="date" formControlName="deliveryDate" required />
+      </div>
+      <div class="input-group mt-1">
+        <span class="input-group-text">Enter Remarks</span>
+        <input type="text" class="form-control" formControlName="terminalRemarks"/>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="approvedDetails.invalid">
+          Approve
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="approveFromModal(approvedDetails)">ADD</button>
+  </div> -->
+  <!-- <div class="modal fade" id="individual" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      
+    </div>
+  </div> -->
+</ng-template>
+
+<!-- Modal for reject-->
+<ng-template #reject let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Reject</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="rejectDetails" (ngSubmit)="rejectRemarksFromModal(rejectDetails)">
+      <div class="input-group mt-1">
+        <span class="input-group-text">Enter Remarks</span>
+        <input type="text" class="form-control" formControlName="terminalRemarks" required />
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="rejectDetails.invalid">
+          Reject
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<!-- Modal for approving selected-->
+<ng-template #approveall let-modal>
+  <div class="modal fade" id="multiple" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form [formGroup]="approvedDetails" (ngSubmit)="approveFromModalSelected(approvedDetails)">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="input-group mt-1">
+              <span class="input-group-text">Enter Cost</span>
+              <input type="text" class="form-control" formControlName="requestCost" required />
+            </div>
+            <div class="input-group mt-1">
+              <span class="input-group-text">Enter Delivery Date</span>
+              <input class="form-control" type="date" formControlName="deliveryDate" required />
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                [disabled]="approvedDetails.invalid">
+                Approve
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>

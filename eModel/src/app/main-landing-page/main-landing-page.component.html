@@ -1,0 +1,265 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white" style="width: 100%;">
+    <div class="container">
+        <a class="navbar-brand" href="">
+            <img class="logo" [src]="logo" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <button class="btn btn-primary ms-lg-3" (click)="login()">Sign Up</button>
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
+
+<!-- HERO -->
+<div class="background">
+    <!-- <video autoplay muted loop id="myVideo">
+        <source [src]="hero" type="video/mp4">
+    </video> -->
+    <video autoplay muted loop id="myVideo" [src]="hero"></video>
+    <div class="content">
+        <img style="height: 150px;" [src]="herologo" alt="Advent eModal">
+    </div>
+</div>
+<!-- //HERO -->
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="service">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h6 class="text-primary">SERVICES</h6>
+                <h1>Our Services</h1>
+                <p>eModal is the technology fabric that connects Motor Carriers, Shippers and Logistic Service Providers
+                    with Terminal Operators & Port Authorities.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6 col-sm-6">
+                <div class="service card-effect text-center">
+                    <img class="service_img" [src]="service_img1" alt="Port Manager">
+                    <h5 class="mt-4 mb-2">Port Manager</h5>
+                    <p style="color:rgb(129, 129, 129)">
+                        <font color="#ff0000">eModal Community Portal [eCP]</font> may be deployed in a custom branded
+                        manner as found in the Ports of NY/NJ [PortTruckPass / TIPS], Virginia [ProPASS], South
+                        Carolina, Oakland and the Portal of Panama
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="service card-effect text-center">
+                    <img class="service_img" [src]="service_img2" alt="eModal Community Portal">
+                    <h5 class="mt-4 mb-2">Intermodal Manager</h5>
+                    <p style="color:rgb(129, 129, 129)">
+                        <font color="#ff0000">eModal Community Portal [eCP]</font> also connects rail terminal and
+                        inland depot stakeholders as deployed in a custom branded manner at the Genesee & Wyoming United
+                        Kingdom [Freightliner / Pentalver] operations
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="service card-effect text-center">
+                    <img class="service_img" [src]="service_img3" alt="Appointments">
+                    <h5 class="mt-4 mb-2">Appointments
+                    </h5>
+                    <p style="color:rgb(129, 129, 129)">Timed appointments, Pre-advice notifications configured to
+                        optimize the terminal yard from the inside out to speed & automate gate operations prior to
+                        truck arrival.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 text-center">
+                <div class="service card-effect">
+                    <img class="service_img" [src]="service_img4" alt="Cargo Visibility">
+                    <h5 class="mt-4 mb-2">Cargo Visibility
+                    </h5>
+                    <p style="color:rgb(129, 129, 129)">eCP Container Watchlist of Import availability, Export booking
+                        claims management, Vessel return instructions, Container lifecycle & Event status, Automated
+                        subscriptions and freight notifications across over 75 terminals</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="service card-effect text-center">
+                    <img class="service_img" [src]="service_img5" alt="Fee Collections">
+                    <h5 class="mt-4 mb-2">Fee Collections
+                    </h5>
+                    <p style="color:rgb(129, 129, 129)">Online fee collections & order to case management [Port,
+                        Terminal, Gate, Line, Drayage order, Driver fee settlement & Chassis Rental]. as well as Ocean
+                        Carrier North American fee collections.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="service card-effect text-center">
+                    <img class="service_img" [src]="service_img6" alt="eModal Data Services">
+
+                    <h5 class="mt-4 mb-2">eModal Data Services
+                    </h5>
+                    <p style="color:rgb(129, 129, 129)">Real-time data integrated directly via API into your TMS or
+                        truck dispatch system for
+                        cargo visibility, container status, book appointments or pay terminal or line fees.
+                        click Here for more info.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- SERVICES -->
+
+<!-- FEATURES -->
+<section class="row w-100 py-0 bg-light" id="features">
+    <div class="row">
+        <div class="feature">
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <h6 class="text-primary">Feature</h6>
+                    <h1>Why To Choose Us</h1>
+                    <p>Best Shipping Service for your Bussiness</p>
+                </div>
+            </div>
+            <div class="quotes">
+                <div class="card">
+                    <div class="box box1">
+                        <ul>
+                            <li>Real time access to on-terminal cargo status</li>
+                            <li>Ongoing status events throughout the intermodal container lifecycle</li>
+                            <li>Open, common platform & data sharing clearing-house</li>
+                            <li>Digitization & access to pertinent load documentation</li>
+                        </ul>
+                        <h2>Visibility</h2>
+                    </div>
+                    <div class="bg"></div>
+                </div>
+                <div class="card">
+                    <div class="box box2">
+                        <ul>
+                            <li>Fee management, processing & collections (order to cash)</li>
+                            <li>Driver, truck, chassis & RFID registration & program management</li>
+                            <li>Maintenance & repair - Equipment, vendor management, order to cash execution</li>
+                        </ul>
+                        <h2>Execution</h2>
+                    </div>
+                    <div class="bg"></div>
+                </div>
+                <div class="card">
+                    <div class="box box3">
+                        <ul>
+                            <li>Appointment system configuration to service trucks based on yard block, stack & move
+                                type capacity</li>
+                            <li>Advanced in-gate truck mission information flows to automate terminal & dispatch
+                                activities</li>
+                            <li>Automated advanced truck appointment setting for dispatch efficiency</li>
+                        </ul>
+                        <h2>Optimization</h2>
+                    </div>
+                    <div class="bg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Feature -->
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-8 mx-auto text-center">
+                <h6 class="text-primary">CONTACT</h6>
+                <h1>Get In Touch</h1>
+                <p></p>
+            </div>
+        </div>
+
+        <form action="" class="row g-3 justify-content-center">
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="Full Name">
+            </div>
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="Enter E-mail">
+            </div>
+            <div class="col-md-10">
+                <input type="text" class="form-control" placeholder="Enter Subject">
+            </div>
+            <div class="col-md-10">
+                <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Enter Message"></textarea>
+            </div>
+            <div class="col-md-10 d-grid">
+                <button class="btn btn-primary">Contact</button>
+            </div>
+        </form>
+
+    </div>
+</section><!-- CONTACT -->
+
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row gy-2">
+                <div class="col-lg-4">
+                    <img class="logo" [src]="advent_logo" alt="Advent eModal" style="height:80px">
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="text-white">Brand</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Features</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="text-white">More</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Privacy & Policy</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Shipment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white">Contact</h5>
+                    <ul class="list-unstyled">
+                        <li>Address: IGNITE, Ahmedabad</li>
+                        <li>Email: Advent@gmail.com</li>
+                        <li>Phone: 987654321</li>
+                        <li><a href="#" target="_blank"><img class="logo" [src]="email" alt="" style="width: 40px;">
+                                <font
+                                    style="font-size: large; font-family: 'Arial';   font-weight: bold;                            ">
+                                    Contact our Commercial Team</font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom py-3">
+        <div class="container text-center">
+            <div class="row ">
+                <div class="col-md-12">
+                    <i class="bx bx-heart text-danger">
+                        <p class="mb-8">© 2022 copyright all right reserved
+                            <a href="" class="text-white">Advent eModal</a>
+                        </p>
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

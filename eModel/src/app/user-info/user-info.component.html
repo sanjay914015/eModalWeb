@@ -1,0 +1,128 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body ">
+                    <img class="user-logo" [src]="this.profileimg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="color:#0088e8; font-size: 16px;">User Information</h5>
+                    <label class="userinfo">First Name :</label>
+                    <input type="text" class="userinfo-input" [disabled]='toggleButton' [(ngModel)]="fname"
+                        name="fname"><br>
+                    <div *ngIf="this.logintype">
+                        <label class="userinfo">Last Name :</label>
+                        <input type="text" class="userinfo-input" [disabled]='toggleButton' [(ngModel)]="lname"
+                            name="lname"><br>
+                    </div>
+                    <label class="userinfo">Contact :</label> &nbsp;&nbsp;
+                    <input type="text" class="userinfo-input" id="myText" [disabled]='toggleButton'
+                        [(ngModel)]="contact" name="contact"><br>
+                    <button class="btn btn-primary" style="margin-top: 97px; margin-left: 362px;" (click)="enable()"
+                        *ngIf="toggleButton">Edit</button>
+                    <button type="btn btn-success" style="margin-top: 97px; margin-left: 362px;" (click)="disable()"
+                        class="btn btn-success" *ngIf="!toggleButton">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 style="color:#0088e8;font-size: 16px;">Login information</h5>
+                    <div>
+                        <label class="userinfo">Email :</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="email" disabled class="userinfo-input" id="myText" [(ngModel)]="email"
+                            name="email">
+                    </div>
+                    <div>
+                        <label class="userinfo" *ngIf="logintoggleButton">Password :</label>
+                        <input type="password" disabled class="userinfo-input" id="myText" [(ngModel)]="password"
+                            name="password" *ngIf="logintoggleButton">
+                    </div>
+                    <div>
+                        <input type="password" *ngIf='!logintoggleButton' class="userinfo-input" id="myText"
+                            placeholder="Current Password" [(ngModel)]="currpasswd" name="currpasswd">
+                        <input type="password" *ngIf='!logintoggleButton' class="userinfo-input" id="myText"
+                            placeholder="New Password" [(ngModel)]="newpasswd" name="newpasswd">
+                        <input type="password" *ngIf='!logintoggleButton' class="userinfo-input" id="myText"
+                            placeholder="Confirm Password" [(ngModel)]="cnfmpasswd" name="cnfmpasswd">
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary" style="margin-top: 10px; " (click)="loginenable()"
+                        *ngIf="logintoggleButton">Edit</button>
+                    <button type="btn btn-success" style="margin-top: 10px;" (click)="logindisable()"
+                        class="btn btn-success" *ngIf="!logintoggleButton">Save</button>
+                </div>
+            </div>
+
+
+            <!-- <img class="user-logo" src="../../assets/images/logos/userlogo.png" alt="">
+    <div class="body-text" style="text-align: center;">
+    <h5 style="color:#0088e8; font-size: 16px; margin-top: 30px;">User Information</h5>
+    <label class="userinfo">First Name:</label>
+    <input type="text" class="userinfo-input" [disabled]='toggleButton' placeholder="Jasmin" name="fname"><br>
+    <label class="userinfo">Last Name:</label>
+    <input type="text" class="userinfo-input" [disabled]='toggleButton' placeholder="Patel" name="lname">
+    <br>
+    <label class="userinfo">Phone:</label>
+    <input type="text" class="userinfo-input" id="myText" placeholder="XXX XXX XXX X" name="lname">
+
+    <h5 style="color:#0088e8;font-size: 16px; margin-top: 15px;">Login information</h5>
+        <label class="userinfo">Email :</label>
+        <input type="email" [disabled]='toggleButton' class="userinfo-input" id="myText" placeholder="abc@gmail.com" name="fname"><br>
+        <label class="userinfo">Password</label>
+        <input type="password" [disabled]='toggleButton' class="userinfo-input" id="myText" placeholder="Patel" name="lname"><br>
+        <button class="btn btn-primary">Edit</button>
+        <button type="btn btn-success" (click)="disable()" class="btn btn-success">Save</button>
+    </div> -->
+
+            <!--<div class="container mt-5">
+    <h5 style="color:#0088e8; font-size: 16px;">User Information</h5>
+    <label >First Name</label>
+    <input type="text" class="userinfo" [disabled]='toggleButton' name="fname" [value]="this.userdata.fname">
+    <label>Last Name</label>
+    <input type="text" class="userinfo" [disabled]='toggleButton' name="lname" [value]="this.userdata.lname">
+    <button class="edit-btn" (click)="enable()" type="button" *ngIf="toggleButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen"
+            viewBox="0 0 16 16">
+            <path
+                d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+        </svg>
+    </button>
+    <br><br>
+    <form class="form-inline">
+        <label>Phone</label>-->
+            <!-- <select id="myText" [disabled]='toggleButton'>
+            <option value="us">US(+1)</option>
+            <option value="india">INDIA(+91)</option>
+            <option value="uk">UK(+44)</option>
+            <option value="germany">Germany(+49)</option>
+        </select> -->
+            <!--<input type="text" class="userinfo" id="myText" name="lname" [disabled]='toggleButton' [value]="this.userdata.phone">
+    </form>
+    <button (click)="disable()" class="btn btn-success" type="button" *ngIf="!toggleButton">Save</button>-->
+        </div>
+
+        <!--<div class="container">
+    <h5 style="color:#0088e8;font-size: 16px;">Login information</h5>
+    <form>
+        <label>Email :</label><button class="edit-btn1" (click)="loginenable()" *ngIf="logintoggleButton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen"
+                viewBox="0 0 16 16">
+                <path
+                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+            </svg>
+        </button><br>
+        <input type="email" [disabled]='logintoggleButton' class="userinfo" id="myText" placeholder="abc@gmail.com"
+            name="fname" [value]="this.userdata.mail">
+        <br><br>
+        <label>Password</label><br>
+        <input type="password" [disabled]='logintoggleButton' class="userinfo" id="myText" name="lname" [value]="this.userdata.password">
+        <button type="button" (click)="logindisable()" class="btn btn-success" *ngIf="!logintoggleButton">Save</button>
+    </form>
+</div>-->

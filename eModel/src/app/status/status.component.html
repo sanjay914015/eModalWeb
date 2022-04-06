@@ -1,0 +1,123 @@
+<div *ngIf="showLoadingIndicator" class="loader"></div>
+<div *ngIf="!showLoadingIndicator">
+  <div class="navbar bg-light navbar-light">
+    <h4 class="text-secondary mx-2">Status</h4>
+  </div>
+  <div class="">
+    <table class="table mt-3">
+      <thead class="thead-light">
+        <tr>
+          <!-- <th scope="col">
+                <input class="form-check-input" type="checkbox" id="flexCheckDefault" (change)="selectAll()" />
+              </th> -->
+          <th scope="col">#</th>
+          <th scope="col">AppointmentID</th>
+          <th scope="col">PaymentID</th>
+          <th scope="col">Approve Date</th>
+          <th scope="col">Container Status</th>
+          <th scope="col">Departure Date</th>
+          <th scope="col">Ship Data</th>
+          <th scope="col">Reaching Data</th>
+          <th scope="col">Receiver Data</th>
+          <th scope="col">Container Empty Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of statusprint; let i = index">
+          <td>{{ item.con_id }}</td>
+          <td>{{ item.appointment_id }}</td>
+          <td>{{ item.paymentId }}</td>
+          <td>{{ item.approveDate }}</td>
+          <td *ngIf="item.con_loaded!=''">Loaded</td>
+          <td *ngIf="item.con_loaded==''"><button class="btn btn-primary" (click)="open(content,i,'Container')">Con
+              Status</button></td>
+          <td *ngIf="item.departure_date!=''">{{ item.departure_date }}</td>
+          <td *ngIf="item.departure_date==''"><button class="btn btn-primary"
+              (click)="open(content,i,'Departure')" [disabled]="item.con_loaded==''">Departure Status</button></td>
+          <td *ngIf="item.ship_id!=''">{{ item.ship_id }}, {{item.ship_date}}</td>
+          <td *ngIf="item.ship_id==''"><button class="btn btn-primary" [disabled]="item.departure_date==''" (click)="open(content,i,'Ship ID')">Ship
+              ID</button></td>
+          <td *ngIf="item.arriving_date!=''">{{ item.arriving_date }}</td>
+          <td *ngIf="item.arriving_date==''"><button class="btn btn-primary"
+              (click)="open(content,i,'Reach Date')" [disabled]="item.ship_id==''">Destination Reach</button></td>
+          <td class="align-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+            </svg>
+          </td>
+          <td *ngIf="item.receiver_delivery_date!=''">{{ item.receiver_delivery_date }}</td>
+          <td *ngIf="item.receiver_delivery_date==''"><button class="btn btn-primary"
+              (click)="open(content,i,'Delivered')" [disabled]="item.arriving_date==''">Delivered</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{this.modaltype}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="updatestatusForm" (ngSubmit)="update(updatestatusForm)">
+      <div *ngIf="this.modaltype=='Container'">
+        <div class="input-group mt-1">
+          <span class="input-group-text">Container </span>
+          <select class="form-select" formControlName="con_data" name="con_data">
+            <option value="Empty" selected>Empty</option>
+            <option value="Loaded">Loaded</option>
+          </select>
+        </div>
+        <div class="input-group mt-1">
+          <span class="input-group-text">Date</span>
+          <input type="date" class="form-control" formControlName="con_date"/>&nbsp;
+          <span class="input-group-text">Time</span>
+          <input type="time" class="form-control" formControlName="con_time"/>
+        </div>
+      </div>
+      <div *ngIf="this.modaltype=='Departure'">
+        <div class="input-group mt-1">
+          <span class="input-group-text">Date</span>
+          <input type="date" class="form-control" formControlName="dept_date"/>&nbsp;
+          <span class="input-group-text">Time</span>
+          <input type="time" class="form-control" formControlName="dept_time"/>
+        </div>
+      </div>
+      <div *ngIf="this.modaltype=='Ship ID'">
+        <div class="input-group mt-1">
+          <span class="input-group-text">Ship ID</span>
+          <input type="text" class="form-control" formControlName="ship_data">
+        </div>
+        <div class="input-group mt-1">
+          <span class="input-group-text">Date</span>
+          <input type="date" class="form-control" formControlName="ship_date"/>&nbsp;
+          <span class="input-group-text">Time</span>
+          <input type="time" class="form-control" formControlName="ship_time"/>
+        </div>
+      </div>
+      <div *ngIf="this.modaltype=='Reach Date'">
+        <div class="input-group mt-1">
+          <span class="input-group-text">Date</span>
+          <input type="date" class="form-control" formControlName="dest_date"/>&nbsp;
+          <span class="input-group-text">Time</span>
+          <input type="time" class="form-control" formControlName="dest_time"/>
+        </div>
+      </div>
+      <div *ngIf="this.modaltype=='Delivered'">
+        <div class="input-group mt-1">
+          <span class="input-group-text">Date</span>
+          <input type="date" class="form-control" formControlName="del_date"/>&nbsp;
+          <span class="input-group-text">Time</span>
+          <input type="time" class="form-control" formControlName="del_time"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+          Update
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

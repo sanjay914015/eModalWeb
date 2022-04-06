@@ -1,0 +1,46 @@
+
+{
+"container_details":[
+  {
+  "id":1,
+  "con_id":"CON00001",
+  "contype_id":"CTI0001",
+  "terminal_id_origin":"TI100001",
+  "terminal_id_current":"TI100001",
+  "status":"Available"
+},
+{
+  "id":1,
+  "con_id":"CON00001",
+  "contype_id":"CTI0001",
+  "terminal_id_origin":"TI100001",
+  "terminal_id_current":"TI100001",
+  "status":"Available"
+},
+{
+  "id":1,
+  "con_id":"CON00001",
+  "contype_id":"CTI0001",
+  "terminal_id_origin":"TI100001",
+  "terminal_id_current":"TI100001",
+  "status":"Available"
+},
+{
+  "id":1,
+  "con_id":"CON00001",
+  "contype_id":"CTI0001",
+  "terminal_id_origin":"TI100001",
+  "terminal_id_current":"TI100001",
+  "status":"Available"
+},
+{
+  "id":1,
+  "con_id":"CON00001",
+  "contype_id":"CTI0001",
+  "terminal_id_origin":"TI100001",
+  "terminal_id_current":"TI100001",
+  "status":"Available"
+}
+
+
+]}

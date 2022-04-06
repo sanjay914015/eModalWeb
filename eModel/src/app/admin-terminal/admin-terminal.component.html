@@ -1,0 +1,142 @@
+<div class="container-fluid">
+    <button class="btn btn-success mt-3" style="float: right;" (click)="open(content, false)">Add Terminal</button>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Terminal_Id</th>
+            <th scope="col">Terminal_Name</th>
+            <th scope="col">Terminal_Mobile</th>
+            <th scope="col">Terminal_Email</th>
+            <th scope="col">Terminal_Username</th>
+            <th scope="col">Terminal_Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let receiveData of receiveterminaldetails">
+            <th scope="row">{{receiveData.id}}</th>
+            <td>{{receiveData.terminal_id}}</td>
+            <td>{{receiveData.terminal_name}}</td>
+            <td>{{receiveData.terminal_mobile}}</td>
+            <td>{{receiveData.terminal_email}}</td>
+            <td>{{receiveData.terminal_username}}</td>
+            <td>{{receiveData.terminal_location}},&nbsp;{{receiveData.city}},&nbsp;{{receiveData.country}},{{receiveData.zipcode}}</td>
+            <td><button class="btn btn-primary btn-sm" (click)="open(content, receiveData)">Edit</button></td>
+        </tr>
+</table>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="!formIsNew">Update Data</h4>
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="formIsNew">Insert Data</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="myForm" *ngIf="!formIsNew" (ngSubmit)="TerminalData()">
+            <div class="form-row row">
+                <div class="form-group col-md-6">
+                    <label>ID</label>
+                    <input type="number" class="form-control" formControlName="id">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Terminal ID</label>
+                    <input type="text" class="form-control" formControlName="terminal_id">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Terminal Name</label>
+                    <input type="text" class="form-control" formControlName="terminal_name">
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Terminal Mobile</label>
+                <input type="text" class="form-control" formControlName="terminal_mobile">
+            </div><br>
+            <div class="form-group ">
+                <label>Terminal Email</label>
+                <input type="email" class="form-control" formControlName="terminal_email">
+            </div>
+            <div class="form-row row">
+                <div class="form-group col-md-2">
+                    <label>Terminal Username</label>
+                    <input type="text" class="form-control" formControlName="terminal_username">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Terminal Password</label>
+                    <input type="number" class="form-control" formControlName="terminal_password">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Terminal Location</label>
+                    <input type="text" class="form-control" formControlName="terminal_location">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="city">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Country</label>
+                    <input type="text" class="form-control" formControlName="country">
+                </div>               
+                <div class="form-group col-md-2">
+                    <label>Zipcode</label>
+                    <input type="number" class="form-control" formControlName="zipcode">
+                </div>
+            </div><br>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+        <form [formGroup]="myForm" *ngIf="formIsNew" (ngSubmit)="postTermminalData()">
+            <div class="form-row row">
+                <div class="form-group col-md-6">
+                    <label>Terminal ID</label>
+                    <input type="text" class="form-control" formControlName="terminal_id">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Terminal Name</label>
+                    <input type="text" class="form-control" formControlName="terminal_name">
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Terminal Mobile</label>
+                <input type="text" class="form-control" formControlName="terminal_mobile">
+            </div><br>
+            <div class="form-group">
+                <label>Terminal Email</label>
+                <input type="email" class="form-control" formControlName="terminal_email">
+            </div>
+            <div class="form-row row">
+                <div class="form-group col-md-2">
+                    <label>Terminal Username</label>
+                    <input type="text" class="form-control" formControlName="terminal_username">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Terminal Password</label>
+                    <input type="number" class="form-control" formControlName="terminal_password">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Terminal Location</label>
+                    <input type="text" class="form-control" formControlName="terminal_location">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="city">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Country</label>
+                    <input type="text" class="form-control" formControlName="country">
+                </div>               
+                <div class="form-group col-md-2">
+                    <label>Zipcode</label>
+                    <input type="number" class="form-control" formControlName="zipcode">
+                </div>
+            </div><br>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</ng-template>

@@ -1,0 +1,27 @@
+body{
+	padding-top:30px;
+	background-color:#34495e;
+}
+
+.hiddenRow {
+    
+	padding: 60px 100px 30px 100px;
+
+}
+.column {
+	float: left;
+	width: 33%;
+	color: black; 
+	border: 0px solid gray;
+	margin-left: 5px;
+	background-color: lightcyan;
+	border-radius: 3px;
+  }
+  
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+
+  

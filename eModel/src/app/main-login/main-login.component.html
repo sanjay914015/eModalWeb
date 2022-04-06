@@ -1,0 +1,25 @@
+<div class="row d-flex justify-content-between">
+    <a class="col-6 m-0 p-0" (click)="selectuser('terminal')">
+        <div class="btn rounded-0 w-100 vh-100">
+            <div class="content-box color-effect-1" style="margin-top: 200px;">
+                <h3>Termial</h3>
+                <div class="box-icon-wrap box-icon-effect-1 box-icon-effect-1a">
+                    <div class="box-icon"><i class="fa" [style.backgroundImage]="'url('+ terminalimage +')'"></i></div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a class="col-6 m-0 p-0" (click)="selectuser('user')">
+        <div class="btn rounded-0 w-100 vh-100">
+            <div class="content-box color-effect-2" style="margin-top: 200px;">
+                <h3>User</h3>
+                <div class="box-icon-wrap box-icon-effect-1 box-icon-effect-1a">
+                    <div class="box-icon">
+                        <i class="fa" [style.backgroundImage]="'url('+ userimage +')'"
+                            style="background-repeat: no-repeat;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

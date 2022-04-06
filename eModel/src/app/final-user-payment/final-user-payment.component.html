@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-sm-5">
+
+        <div class="creditCardForm" style="width: 700px;">
+            <div class="heading">
+                <h1>Confirm Purchase</h1>
+            </div>
+            <div class="payment">
+                <form [formGroup]="payment" (ngSubmit)="addContainer(payment)">
+                    <div class="form-group owner">
+                        <label for="owner">Owner</label>
+                        <input type="text" formControlName="name" placeholder="Enter your Name" class="form-control"
+                            id="owner">
+                    </div>
+                    <div class="form-group CVV">
+                        <label for="cvv">CVV</label>
+                        <input type="password" formControlName="cvv" placeholder="---" class="form-control" id="cvv">
+                    </div>
+                    <div class="form-group" id="card-number-field">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" formControlName="cardNumber" placeholder="---- ---- ---- ----"
+                            class="form-control" id="cardNumber">
+                    </div>
+                    <div class="form-group" id="expiration-date">
+                        <label>Expiration Date</label>
+                        <select>
+                            <option value="01">January</option>
+                            <option value="02">February </option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <select>
+                            <option value="16"> 2023</option>
+                            <option value="17"> 2024</option>
+                            <option value="18"> 2025</option>
+                            <option value="19"> 2026</option>
+                            <option value="20"> 2027</option>
+                            <option value="21"> 2028</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="credit_cards">
+                        <img src="./../../assets/images/visa.PNG" id="visa" style="height: 40px;">
+                        <img src="./../../assets/images/ms.png" id="mastercard" style="height: 40px;">
+                    </div>
+                    <div class="form-group" id="pay-now">
+                        <button type="submit" id="confirm-purchase" [disabled]="!payment.valid" (click)="message()" class="btn btn-primary">Make Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="order">
+            <h2>Order Summary</h2><br>
+            <h5 style="border-bottom:1px solid black ;padding: 20px;">Total Items</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Container ID</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Booking Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of containers; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <!-- <td>{{c.id}}</td> -->
+                        <td>{{c.container_id}}</td>
+                        <td>{{c.cost}}</td>
+                        <td>{{this.todaydate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            Total Amount - {{totalPrice}}<br>
+            <br>
+        </div>
+    </div>
+</div>

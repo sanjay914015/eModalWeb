@@ -1,0 +1,14 @@
+img{
+    height: 20px;
+    width: 20px;
+}
+.zoom {
+    transition: transform .2s;
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    -ms-transform: scale(4.5); /* IE 9 */
+    -webkit-transform: scale(4.5); /* Safari 3-8 */
+    transform: scale(4.5); 
+  }
